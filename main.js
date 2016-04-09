@@ -11,10 +11,10 @@ var O = 2;
 var board = [[0, 0, 0], [0, 0, 0], [0, 0, 0] ];
 
 domain.onJoin = function() {
-    this.register("play", riffle.want(function(row, column) {
-        board[row][column] = X;
+    this.register("play", riffle.want(function(cell) {
+        board[cell/3][cell % 3] = X;
         return board;
-    }, Number, Number));
+    }, Number));
 }
 
 domain.join()
